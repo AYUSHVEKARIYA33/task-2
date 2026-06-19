@@ -1,0 +1,326 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --card-border: #d9e1ec;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --success: #166534;
+  --danger: #b91c1c;
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: min(1080px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.25rem 0 2rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  padding: 1.25rem;
+  align-items: stretch;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hero h1,
+.panel-head h2 {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.subtitle {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.stat-tile {
+  padding: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: #f8fafc;
+  display: grid;
+  gap: 0.5rem;
+  align-content: center;
+  min-height: 88px;
+}
+
+.stat-label,
+.hint,
+.message {
+  color: var(--muted);
+}
+
+.stat-tile strong {
+  font-size: 2rem;
+}
+
+.layout {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 1.5rem;
+}
+
+.form-panel,
+.controls-panel,
+.table-panel {
+  padding: 1.25rem;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.25rem;
+}
+
+.student-form,
+.control-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.student-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.student-form label,
+.control-grid label {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.student-form label:first-child,
+.student-form label:nth-child(2),
+.student-form button,
+.student-form .message {
+  grid-column: 1 / -1;
+}
+
+span {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid var(--card-border);
+  background: #ffffff;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.85rem 0.95rem;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.primary-button,
+.secondary-button,
+.ghost-button {
+  border: 0;
+  border-radius: 8px;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.18s ease, opacity 0.18s ease;
+}
+
+.primary-button {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.secondary-button,
+.ghost-button {
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid var(--card-border);
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.ghost-button:hover,
+.student-action:hover {
+  opacity: 0.92;
+}
+
+.action-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.message {
+  min-height: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.message.success {
+  color: var(--success);
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+.students-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.student-card {
+  padding: 1rem;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  display: grid;
+  gap: 0.9rem;
+}
+
+.student-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+
+.student-name {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.student-meta {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.student-badge {
+  font-size: 0.82rem;
+  color: var(--accent);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  white-space: nowrap;
+}
+
+.student-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.student-action {
+  border: 1px solid var(--card-border);
+  background: #ffffff;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+}
+
+.student-action.danger {
+  color: var(--danger);
+  border-color: rgba(185, 28, 28, 0.18);
+}
+
+.empty-state {
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--card-border);
+  border-radius: 10px;
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100% - 1rem, 1080px);
+    padding-top: 0.75rem;
+  }
+
+  .hero,
+  .form-panel,
+  .controls-panel,
+  .table-panel {
+    padding: 1rem;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .student-form {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-head,
+  .student-top {
+    flex-direction: column;
+  }
+}

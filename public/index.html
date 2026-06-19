@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student API Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero card">
+        <div>
+          <p class="eyebrow">Student API</p>
+          <h1>Student Management</h1>
+          <p class="subtitle">
+            Add, edit, search, and delete student records from this simple browser interface.
+          </p>
+        </div>
+        <div class="stats-row">
+          <div class="stat-tile">
+            <span class="stat-label">Total Students</span>
+            <strong id="totalStudents">0</strong>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-label">Visible Records</span>
+            <strong id="visibleStudents">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="layout">
+        <section class="card form-panel">
+          <div class="panel-head">
+            <div>
+              <h2 id="formTitle">Add Student</h2>
+            </div>
+            <button id="resetButton" class="ghost-button" type="button">Reset</button>
+          </div>
+
+          <form id="studentForm" class="student-form">
+            <input type="hidden" id="studentId" />
+
+            <label>
+              <span>Name</span>
+              <input id="name" name="name" type="text" placeholder="Ayush Vekariya" required />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input id="email" name="email" type="email" placeholder="ayush@gmail.com" required />
+            </label>
+
+            <label>
+              <span>Course</span>
+              <input id="course" name="course" type="text" placeholder="Computer Engineering" required />
+            </label>
+
+            <label>
+              <span>Age</span>
+              <input id="age" name="age" type="number" min="1" placeholder="21" required />
+            </label>
+
+            <button class="primary-button" type="submit">Save Student</button>
+          </form>
+
+          <div id="formMessage" class="message" aria-live="polite"></div>
+        </section>
+
+        <section class="card controls-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Search and Sort</h2>
+            </div>
+          </div>
+
+          <div class="control-grid">
+            <label>
+              <span>Search by name</span>
+              <input id="searchInput" type="text" placeholder="Ayush" />
+            </label>
+
+            <label>
+              <span>Sort</span>
+              <select id="sortSelect">
+                <option value="">Default order</option>
+                <option value="name">Name A to Z</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="action-row">
+            <button id="searchButton" class="secondary-button" type="button">Search</button>
+            <button id="loadAllButton" class="secondary-button" type="button">Show All</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="card table-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Student List</h2>
+          </div>
+          <div class="hint">Click edit to load a student into the form.</div>
+        </div>
+
+        <div id="studentsList" class="students-list"></div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
